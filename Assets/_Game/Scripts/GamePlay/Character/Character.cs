@@ -5,7 +5,7 @@ public class Character : AbCharacter
 {
     public const float ATT_RANGE = 20f;
     protected Anim anim;
-    public List<Character> targets = new List<Character>();
+    List<Character> targets = new List<Character>();
     protected Character target;
     public bool IsDead { get; protected set; }
     public override void OnInit()

@@ -8,7 +8,7 @@ public class WeaponRange : MonoBehaviour
     void Start()
     {
         character = LevelManager.Instance.Player;
-        sphereCollider.radius = weapon.range;
+        sphereCollider.radius = weapon.range / transform.localScale.x;
     }
     
 

@@ -3,14 +3,37 @@ using UnityEngine;
 public class PlayerAutoAttack : MonoBehaviour
 {
     Weapon currentWeapon;
-    public Transform position;
+    Vector3 targetPoint;
+    Character target;
+    Player player;
+
     void Start()
     {
-        currentWeapon = SimplePool.Spawn<Weapon>(PoolType.G_Shuriken, position);
+        player = GetComponent<Player>();
     }
-    public void OnAttack(Vector3 target)
+
+    void Update()
     {
-       currentWeapon?.Shoot(target);
+        AutoAttack();
+    }
+
+    public void AutoAttack()
+    {
+        if(currentWeapon == null)
+        {
+            currentWeapon = player.currentWeapon;
+        }
+        else
+        {
+            target = player.GetTargetInRange();
+            if(target != null)
+            {
+                targetPoint = target.TF.position;
+                currentWeapon?.Shoot(targetPoint);
+                //ChangeAnim(Constant.ANIM_ATTACK);
+            }
+        }
+        
     }
 
 }

@@ -3,13 +3,24 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed;
-    public void OnMove(Transform TF,Vector3 direction)
+    Anim anim;
+    void Start()
     {
-        TF.position = direction * moveSpeed * Time.deltaTime + TF.position;
+        anim = GetComponent<Anim>();
+    }
 
-        if (direction != Vector3.zero)
+    void Update()
+    {
+        transform.position = JoystickControl.direct * moveSpeed * Time.deltaTime + transform.position;
+
+        if (JoystickControl.direct != Vector3.zero)
         {
-            TF.forward = direction;
+            transform.forward = JoystickControl.direct;
+            anim.ChangeAnim(Constants.ANIM_RUN);
+        }
+        else
+        {
+            anim.ChangeAnim(Constants.ANIM_IDLE);
         }
     }
 }
