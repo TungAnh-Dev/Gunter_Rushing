@@ -4,20 +4,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "MapData", menuName = "ScriptableObjects/MapData", order = 1)]
 public class MapData : ScriptableObject
 {
-    [SerializeField] GameObject[] tiles;
-    [SerializeField] GameObject[] props;
+    [SerializeField] ObjectColor[] tiles;
+    [SerializeField] ObjectColor[] props;
     [SerializeField] Material mainColor;
 
     public Material MainColor { get => mainColor; }
+    public ObjectColor[] Tiles { get => tiles;  }
+    public ObjectColor[] Props { get => props; }
 
-    public GameObject GetProps(PropsType propsType)
-    {
-        return props[(int)propsType];
-    } 
 
-    public GameObject GetTile(TileType tileType)
-    {
-        return tiles[(int)tileType];
-    }
 
 }

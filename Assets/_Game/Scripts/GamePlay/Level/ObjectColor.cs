@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ObjectColor : MonoBehaviour, ITile
+public class ObjectColor : MonoBehaviour
 {
     [SerializeField] private MapData colorData;
     [SerializeField] private Renderer rd;
@@ -8,8 +8,12 @@ public class ObjectColor : MonoBehaviour, ITile
 
     void Start()
     {
-        colorData = LevelManager.Instance.CurrentLevel.MapData;
-        ChangeColor();
+        if(rd != null)
+        {
+            colorData = LevelManager.Instance.CurrentLevel.LevelLoader.MapData;
+            ChangeColor();
+        }
+        
     }
 
     public void ChangeColor()
@@ -17,11 +21,8 @@ public class ObjectColor : MonoBehaviour, ITile
         rd.material = colorData.MainColor;
     }
 
-    public void Initialization(char symbol, ObjectColor objectColor)
+    public void Initialization(Vector3 position, Transform parent)
     {
-        if(this.symbol == symbol)
-        {
-            Instantiate(objectColor);
-        }
+        Instantiate(this, position, Quaternion.identity, parent);
     }
 }

@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a44d3cec97d015340944a26efb1f7971, type: 2}
+  - {fileID: 2100000, guid: a6a9daffd97df7545b640ad5f896c383, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,3 +112,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colorData: {fileID: 0}
   rd: {fileID: 2974262337133846805}
+  symbol: 49

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3635252138581411805}
   - component: {fileID: -5786308437903222743}
+  - component: {fileID: 1816824135697052294}
   m_Layer: 0
   m_Name: Cabin
   m_TagString: Untagged
@@ -47,6 +48,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.010258, y: 1.8779907, z: 1.8391637}
   m_Center: {x: -0.02706945, y: 2.0025826, z: -0.025108159}
+--- !u!114 &1816824135697052294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4123276510376205671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 747376822eb00e0478b95651ef0655db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorData: {fileID: 0}
+  rd: {fileID: 0}
+  symbol: 0
 --- !u!1 &4400530826202690564
 GameObject:
   m_ObjectHideFlags: 0
