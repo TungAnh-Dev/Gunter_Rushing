@@ -4,13 +4,13 @@ public class Grenade : Projectile
 {
     [SerializeField] Rigidbody rb;
 
-    public override void OnInit(Vector3 target)
-    {
-        base.OnInit(target);
-        ThrowGrenada(target);
-    }
+    // public override void OnInit(Vector3 target)
+    // {
+    //     base.OnInit(target);
+    //     ThrowGrenada(target);
+    // }
 
-    public void ThrowGrenada(Vector3 target)
+    public override void Launch(Vector3 target)
     {
         float gravity = Physics.gravity.magnitude;
         float halfFlightTime = Mathf.Sqrt(projectileSpeed * 2f / gravity);

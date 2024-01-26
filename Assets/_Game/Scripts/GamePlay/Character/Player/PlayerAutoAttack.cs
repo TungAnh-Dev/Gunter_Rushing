@@ -6,7 +6,7 @@ public class PlayerAutoAttack : MonoBehaviour
     public Transform position;
     void Start()
     {
-        currentWeapon = SimplePool.Spawn<Weapon>(PoolType.G_RevolvingGrenade, position);
+        currentWeapon = SimplePool.Spawn<Weapon>(PoolType.G_Shuriken, position);
     }
     public void OnAttack(Vector3 target)
     {

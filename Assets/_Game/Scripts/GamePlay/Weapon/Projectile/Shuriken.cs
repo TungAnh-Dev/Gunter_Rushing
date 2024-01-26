@@ -2,12 +2,6 @@ using UnityEngine;
 
 public class Shuriken : Projectile
 {
-    // public override void OnInit(Vector3 target)
-    // {
-    //     base.OnInit(target);
-
-    // }
-
     void Update()
     {
         ShurikenForward();

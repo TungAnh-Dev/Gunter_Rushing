@@ -9,7 +9,6 @@ public class WeaponData : ScriptableObject
     public float range;
     public float fireRate;
     public float muzzleVelocity;
-    public ProjectileType projectileType;
 }
 
 

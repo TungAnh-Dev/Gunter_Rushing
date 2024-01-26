@@ -4,6 +4,7 @@ public class Projectile : GameUnit
 {
     [SerializeField] protected WeaponData weaponData;
     protected float projectileSpeed;
+    protected Vector3 target;
     void Awake()
     {
         projectileSpeed = weaponData.muzzleVelocity;
@@ -12,4 +13,10 @@ public class Projectile : GameUnit
     {
         TF.forward = (target - TF.position).normalized;
     }
+
+    public virtual void Launch(Vector3 target)
+    {
+
+    }
+
 }

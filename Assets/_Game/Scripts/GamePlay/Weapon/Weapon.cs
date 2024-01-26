@@ -3,36 +3,33 @@ using UnityEngine;
 public class Weapon : GameUnit
 {
     [SerializeField] WeaponData weaponData;
-    [SerializeField] Transform projectilePoint;
     Anim anim;
     public float range {get; private set; }
     public float fireRate {get; private set; }
-    private float fireRateCooldown;
+    private float nextFireTime;
+    private ILaucher laucher;
     void Start()
     {
+        laucher = GetComponent<ILaucher>();
         anim = GetComponent<Anim>();
         range = weaponData.range;
         fireRate = weaponData.fireRate;
-        fireRateCooldown = 0;
     }
 
-    void FixedUpdate()
-    {   
-        fireRateCooldown += Time.deltaTime;
-    }
+    private bool CanFire() => Time.time >= nextFireTime;
     
         
     public void Shoot(Vector3 target)
     {
-        if(fireRate < fireRateCooldown)
+        if(CanFire())
         {
+            nextFireTime = Time.time + fireRate;
+
             LookAtTarget(target);
             anim.ChangeAnim(Constants.WEAPON_SHOOT);
 
-            Projectile projectile = SimplePool.Spawn<Projectile>((PoolType)weaponData.projectileType, projectilePoint.position, Quaternion.identity);
-            projectile.OnInit(target);
-            fireRateCooldown = 0;
-
+            laucher.Launch(target);
+            
             Invoke(nameof(ResetAnim), 0.5f);
         }
     }

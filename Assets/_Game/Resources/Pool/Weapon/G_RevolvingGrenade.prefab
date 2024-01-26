@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 8326016120418608156}
   - component: {fileID: 5868720003176194776}
   - component: {fileID: 1160920793679430058}
+  - component: {fileID: -2123736141890436955}
   m_Layer: 0
   m_Name: G_RevolvingGrenade
   m_TagString: Untagged
@@ -267,7 +268,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolType: 3
   weaponData: {fileID: 11400000, guid: 1271e3eeb9b13ce4d82ba22d04f86e67, type: 2}
-  projectilePoint: {fileID: 6030493202446203070}
 --- !u!114 &1160920793679430058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,6 +281,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 1173782264144298915}
+--- !u!114 &-2123736141890436955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5283074892814425302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 381bc4185a5af59499782a6cd366ccff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePoint: {fileID: 6030493202446203070}
 --- !u!1 &6338982773995346921
 GameObject:
   m_ObjectHideFlags: 0

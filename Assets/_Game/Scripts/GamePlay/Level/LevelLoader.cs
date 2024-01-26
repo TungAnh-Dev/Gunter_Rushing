@@ -11,7 +11,6 @@ public class LevelLoader : MonoBehaviour
     Vector3 startPointPlayer;
 
     public Vector3 StartPointPlayer { get => startPointPlayer;}
-    private ITile tile;
 
     public void LoadLevel(string fileName, MapData mapData)
     {
