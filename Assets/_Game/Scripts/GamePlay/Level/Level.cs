@@ -7,7 +7,6 @@ public class Level : MonoBehaviour
     [SerializeField] LevelLoader levelLoader;
 
     public Vector3 StartPointPlayer { get => startPointPlayer; }
-    public LevelLoader LevelLoader { get => levelLoader; }
 
     public void OnInit()
     {

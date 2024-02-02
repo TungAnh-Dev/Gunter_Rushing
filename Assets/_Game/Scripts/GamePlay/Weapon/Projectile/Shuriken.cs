@@ -12,8 +12,4 @@ public class Shuriken : Projectile
         TF.Translate(TF.forward * projectileSpeed * Time.deltaTime, Space.World);
     }
 
-    public void OnDespawn()
-    {
-        SimplePool.Despawn(this);
-    }
 }

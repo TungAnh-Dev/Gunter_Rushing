@@ -15,6 +15,5 @@ MonoBehaviour:
   name: 'Rifle '
   damage: 40
   range: 9
-  fireRate: 6
+  fireRate: 1
   muzzleVelocity: 10
-  projectileType: 6

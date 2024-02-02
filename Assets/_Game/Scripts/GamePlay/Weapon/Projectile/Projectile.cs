@@ -4,7 +4,7 @@ public class Projectile : GameUnit
 {
     [SerializeField] protected WeaponData weaponData;
     protected float projectileSpeed;
-    protected Vector3 target;
+    public Vector3 target;
     void Awake()
     {
         projectileSpeed = weaponData.muzzleVelocity;
@@ -18,5 +18,11 @@ public class Projectile : GameUnit
     {
 
     }
+
+    public void OnDespawn()
+    {
+        SimplePool.Despawn(this);
+    }
+
 
 }

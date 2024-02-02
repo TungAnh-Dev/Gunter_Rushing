@@ -154,13 +154,13 @@ public enum PoolType
     G_Shuriken,
     G_Rifle,
     G_RevolvingGrenade,
-    G_Flame,
+    G_Laser,
 
     //Projectile
     P_Shuriken,
     P_Bullet,
     P_Grenade,
-    P_Flame
+    P_Laser
 
 }
 

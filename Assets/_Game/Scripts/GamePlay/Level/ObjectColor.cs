@@ -2,27 +2,22 @@ using UnityEngine;
 
 public class ObjectColor : MonoBehaviour
 {
-    [SerializeField] private MapData colorData;
     [SerializeField] private Renderer rd;
     public char symbol;
 
-    void Start()
+
+    public void ChangeColor(MapData colorData)
     {
         if(rd != null)
         {
-            colorData = LevelManager.Instance.CurrentLevel.LevelLoader.MapData;
-            ChangeColor();
+            rd.material = colorData.MainColor;
         }
         
     }
 
-    public void ChangeColor()
-    {
-        rd.material = colorData.MainColor;
-    }
-
-    public void Initialization(Vector3 position, Transform parent)
+    public void Initialization(Vector3 position, Transform parent, MapData colorData)
     {
         Instantiate(this, position, Quaternion.identity, parent);
+        ChangeColor(colorData);
     }
 }

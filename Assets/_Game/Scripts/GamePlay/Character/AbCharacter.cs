@@ -1,4 +1,6 @@
 
+using System.Collections.Generic;
+
 public abstract class AbCharacter : GameUnit
 {
     public abstract void OnInit();

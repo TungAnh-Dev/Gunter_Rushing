@@ -29,4 +29,4 @@ MonoBehaviour:
   - {fileID: 874584266716725492, guid: 6fbeead406b0d6c4ba7793d754752d28, type: 3}
   - {fileID: -2317913595335080912, guid: c1cf8fa54561844478058d78b4e3a22a, type: 3}
   - {fileID: -695007747831313777, guid: 9d9016a93e2afb14993f9ab42254fc2b, type: 3}
-  mainColor: {fileID: 2100000, guid: 371caa249f4c6d4418ab241f4b60688b, type: 2}
+  mainColor: {fileID: 2100000, guid: f15d3e742a1142741b5ebcba4fd016fc, type: 2}

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 public class Character : AbCharacter
 {
-    public const float ATT_RANGE = 20f;
     protected Anim anim;
     List<Character> targets = new List<Character>();
     protected Character target;
@@ -43,18 +42,18 @@ public class Character : AbCharacter
     public Character GetTargetInRange()
     {
         Character target = null;
-        float distance = float.PositiveInfinity;
+        float minDistance = float.PositiveInfinity;
 
         for (int i = 0; i < targets.Count; i++)
         {
             //if (targets[i] != null && targets[i] != this && !targets[i].IsDead && Vector3.Distance(TF.position, targets[i].TF.position) <= ATT_RANGE)
-            if (targets[i] != null && targets[i] != this && Vector3.Distance(TF.position, targets[i].TF.position) <= ATT_RANGE)
+            if (targets[i] != null && targets[i] != this)
             {
                 float dis = Vector3.Distance(TF.position, targets[i].TF.position);
 
-                if (dis < distance)
+                if (dis < minDistance)
                 {
-                    distance = dis;
+                    minDistance = dis;
                     target = targets[i];
                 }
             }
