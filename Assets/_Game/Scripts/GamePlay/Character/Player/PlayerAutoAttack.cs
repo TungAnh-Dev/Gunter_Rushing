@@ -1,12 +1,9 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerAutoAttack : MonoBehaviour
 {
     List<Weapon> weapons = new List<Weapon>(4);
-    Vector3 targetPoint;
-    Character target;
     Player player;
 
     void Start()
@@ -26,18 +23,15 @@ public class PlayerAutoAttack : MonoBehaviour
 
     public void AutoAttack()
     {
-        target = player.GetTargetInRange();
-        if(target != null)
+        for (int i = 0; i < weapons.Count; i++)
         {
-            targetPoint = target.TF.position;
+            float weaponRange = weapons[i]?.range ?? 0f;
+            Enemy currentTarget = player.GetTargetInRange(weaponRange);
 
-            foreach (Weapon weapon in weapons)
+            if (currentTarget != null)
             {
-                weapon?.Shoot(targetPoint);
+                weapons[i]?.Shoot(currentTarget.GetHeart());
             }
-            //ChangeAnim(Constant.ANIM_ATTACK);
         }
-        
     }
-
 }

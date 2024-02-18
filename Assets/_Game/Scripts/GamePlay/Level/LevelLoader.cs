@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class LevelLoader : MonoBehaviour
 {
-    public float spacing = 1.0f; // Khoảng cách giữa các đối tượng
+    [SerializeField] float spacing = 1.0f; // Khoảng cách giữa các đối tượng
     [SerializeField] Transform tileParent; // parent object ground
     [SerializeField] Transform propsParent; // parent object props
     [SerializeField] Transform startPointMap; // start point's map

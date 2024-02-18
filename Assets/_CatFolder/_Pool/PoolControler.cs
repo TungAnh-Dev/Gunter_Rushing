@@ -138,13 +138,7 @@ public class ParticleAmount
 
 public enum ParticleType
 {
-    FireBreathVFX,
-    FireTornadaVFX,
-    FireExplodeRedVFX,
-
-    LevelUp_1,
-    LevelUp_2,
-    LevelUp_3,
+    Bomb,
 }
 
 public enum PoolType
@@ -160,7 +154,12 @@ public enum PoolType
     P_Shuriken,
     P_Bullet,
     P_Grenade,
-    P_Laser
+    P_Laser,
+
+    HealthBar,
+    E_Bomb,
+    
+    
 
 }
 

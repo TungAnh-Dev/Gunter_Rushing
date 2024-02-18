@@ -1,66 +1,42 @@
-using UnityEngine;
-using System.Collections.Generic;
 
-public class Character : AbCharacter
+
+public abstract class Character : GameUnit, IEntity
 {
     protected Anim anim;
-    List<Character> targets = new List<Character>();
-    protected Character target;
-    public bool IsDead { get; protected set; }
-    public override void OnInit()
+    protected HealthComponent health;
+
+    public HealthComponent Health { get => health;}
+
+    public virtual void OnInit()
     {
         anim = GetComponent<Anim>();
+        health = GetComponent<HealthComponent>();
+        health.OnInit();
     }
-    
-    public override void OnAttack()
+    public virtual void OnDeath()
+    {
+        // Logic xử lý khi chết
+        anim.ChangeAnim(Constants.ANIM_DEATH);
+        health.HealthBar.OnDespawn();
+    }
+
+    public virtual void OnDespawn()
     {
         
     }
 
-    public override void OnDeath()
+    public virtual float GetHealth()
     {
-
+        return 0;
     }
 
-    public override void OnDespawn()
+    public virtual float GetDamage()
     {
-
+        return 0;
     }
 
-    public virtual void AddTarget(Character target)
+    public void SetHealth(float hp)
     {
-        targets.Add(target);
+        health.currrentHp = hp;
     }
-
-    //xoas muc tieu
-    public virtual void RemoveTarget(Character target)
-    {
-        targets.Remove(target);
-        this.target = null;
-    }
-
-    public Character GetTargetInRange()
-    {
-        Character target = null;
-        float minDistance = float.PositiveInfinity;
-
-        for (int i = 0; i < targets.Count; i++)
-        {
-            //if (targets[i] != null && targets[i] != this && !targets[i].IsDead && Vector3.Distance(TF.position, targets[i].TF.position) <= ATT_RANGE)
-            if (targets[i] != null && targets[i] != this)
-            {
-                float dis = Vector3.Distance(TF.position, targets[i].TF.position);
-
-                if (dis < minDistance)
-                {
-                    minDistance = dis;
-                    target = targets[i];
-                }
-            }
-        }
-
-        return target;
-    }
-
-
 }

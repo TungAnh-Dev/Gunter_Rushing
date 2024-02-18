@@ -12,6 +12,7 @@ public class LevelManager : Singleton<LevelManager>
     Level currentLevel;
     public Level CurrentLevel { get => currentLevel; }
     public Player Player { get => player;}
+    public Enemy enemy;
 
     private void Start() 
     {
@@ -19,5 +20,19 @@ public class LevelManager : Singleton<LevelManager>
         currentLevel.OnInit();
         startPoint = currentLevel.StartPointPlayer;
         player.OnInit();
+        enemy.OnInit();
+    }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.V))
+        {
+            Test();
+        }
+    }
+
+    public void Test()
+    {
+        player.AddTarget(enemy);
     }
 }

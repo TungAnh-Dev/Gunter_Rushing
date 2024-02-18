@@ -16,6 +16,11 @@ public class Anim : MonoBehaviour
         }
     }
 
+    public void ResetAnimAfterSecond(float second)
+    {
+        Invoke(nameof(ResetAnim), second);
+    }
+
     public void ResetAnim()
     {
         currentAnim = "";

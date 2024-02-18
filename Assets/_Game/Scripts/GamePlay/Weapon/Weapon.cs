@@ -25,22 +25,14 @@ public class Weapon : GameUnit
         {
             nextFireTime = Time.time + fireRate;
 
-            LookAtTarget(target);
+            TF.LookAt(target);
             anim.ChangeAnim(Constants.WEAPON_SHOOT);
 
             laucher.Launch(target);
             
-            Invoke(nameof(ResetAnim), 0.5f);
+            anim.ResetAnimAfterSecond(0.5f);
         }
     }
 
-    private void LookAtTarget(Vector3 target)
-    {
-        TF.LookAt(target);
-    }
 
-    private void ResetAnim()
-    {
-        anim.ResetAnim();
-    }
 }

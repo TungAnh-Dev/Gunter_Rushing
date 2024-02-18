@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 325303786755637532}
   - component: {fileID: 3714574592848267863}
   - component: {fileID: -1556367485983175294}
+  - component: {fileID: 2168833483376445785}
   m_Layer: 6
   m_Name: P_Grenade
   m_TagString: Untagged
@@ -132,8 +133,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolType: 7
   weaponData: {fileID: 11400000, guid: 1271e3eeb9b13ce4d82ba22d04f86e67, type: 2}
+  target: {x: 0, y: 0, z: 0}
   rb: {fileID: -1556367485983175294}
-  flightHeight: 2
 --- !u!135 &3714574592848267863
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -163,3 +164,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2168833483376445785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4909237271557315931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9252db31932857e41b99ef337bfbca22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 325303786755637532}

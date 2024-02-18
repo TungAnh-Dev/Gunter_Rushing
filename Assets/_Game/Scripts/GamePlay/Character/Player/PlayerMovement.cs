@@ -2,11 +2,14 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float moveSpeed;
+    [SerializeField] PlayerData playerData;
+
+    float moveSpeed;
     Anim anim;
     void Start()
     {
         anim = GetComponent<Anim>();
+        moveSpeed = playerData.MoveSpeed;
     }
 
     void Update()
