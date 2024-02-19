@@ -177,6 +177,7 @@ MonoBehaviour:
   currrentHp: 0
   offsetHealthBar: {x: 0, y: 1.75, z: 0}
   color: {r: 1, g: 0, b: 0.07843113, a: 1}
+  damageNumber: {fileID: 8483045734099835799, guid: bf81c86fedb025947961719281578bc8, type: 3}
 --- !u!114 &4197980149337888494
 MonoBehaviour:
   m_ObjectHideFlags: 0

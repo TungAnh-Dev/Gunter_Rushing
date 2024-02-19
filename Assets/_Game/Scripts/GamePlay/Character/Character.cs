@@ -22,7 +22,7 @@ public abstract class Character : GameUnit, IEntity
 
     public virtual void OnDespawn()
     {
-        
+        SimplePool.Despawn(this);
     }
 
     public virtual float GetHealth()

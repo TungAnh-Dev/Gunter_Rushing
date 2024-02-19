@@ -24,6 +24,8 @@ public class Enemy : Character
    
     void Update()
     {
+        if(health.IsDead) return;
+        
         stateMachine?.Execute();
     }
 
@@ -31,6 +33,7 @@ public class Enemy : Character
     {
         base.OnInit();
         LoadData();
+        agent.isStopped = false;
         stateMachine.ChangeState(IdleState);
         isAttacking = false;
         attackArea.InactiveAttackArea();
@@ -43,6 +46,7 @@ public class Enemy : Character
     public override void OnDeath()
     {
         base.OnDeath();
+        agent.isStopped = true;
         Invoke(nameof(OnDespawn), enemyData.TimeToDespawn);
     }
 

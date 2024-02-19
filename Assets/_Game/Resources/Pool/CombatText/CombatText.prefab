@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 8483045734099835799}
   - component: {fileID: 8483045734099835798}
   m_Layer: 0
-  m_Name: CombatText - Gold
+  m_Name: CombatText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -528,33 +528,33 @@ MonoBehaviour:
       m_NumAlphaKeys: 2
     fromNumber: 10
     toNumber: 100
-  durationFadeIn: 0.25
-  enableOffsetFadeIn: 1
-  offsetFadeIn: {x: 0, y: 0.5}
+  durationFadeIn: 0.2
+  enableOffsetFadeIn: 0
+  offsetFadeIn: {x: 0.5, y: 0}
   enableScaleFadeIn: 1
-  scaleFadeIn: {x: 0.5, y: 2}
-  enableCrossScaleFadeIn: 1
+  scaleFadeIn: {x: 1, y: 2}
+  enableCrossScaleFadeIn: 0
   crossScaleFadeIn: {x: 1, y: 1.5}
   enableShakeFadeIn: 1
-  shakeOffsetFadeIn: {x: 0, y: 2.5}
-  shakeFrequencyFadeIn: 4
-  durationFadeOut: 0.3
-  enableOffsetFadeOut: 1
-  offsetFadeOut: {x: 0, y: -0.2}
+  shakeOffsetFadeIn: {x: 0, y: 1.5}
+  shakeFrequencyFadeIn: 2
+  durationFadeOut: 0.2
+  enableOffsetFadeOut: 0
+  offsetFadeOut: {x: 0.5, y: 0}
   enableScaleFadeOut: 1
-  scaleFadeOut: {x: 0.8, y: 1.2}
-  enableCrossScaleFadeOut: 1
+  scaleFadeOut: {x: 0.6, y: 1.4}
+  enableCrossScaleFadeOut: 0
   crossScaleFadeOut: {x: 1, y: 1.5}
   enableShakeFadeOut: 1
-  shakeOffsetFadeOut: {x: 0, y: 1.5}
-  shakeFrequencyFadeOut: 4
+  shakeOffsetFadeOut: {x: 0, y: -1}
+  shakeFrequencyFadeOut: 2
   enableLerp: 1
   lerpSettings:
     speed: 5
     minX: -0.4
     maxX: 0.4
-    minY: 0.5
-    maxY: 1
+    minY: 0.4
+    maxY: 0.7
     randomFlip: 0
   enableVelocity: 0
   velocitySettings:
@@ -570,7 +570,7 @@ MonoBehaviour:
   shakeSettings:
     offset: {x: 0.005, y: 0.005}
     frequency: 50
-  enableFollowing: 1
+  enableFollowing: 0
   followedTarget: {fileID: 0}
   followSettings:
     speed: 10
@@ -735,10 +735,10 @@ MonoBehaviour:
     absorberScaleFade: 15
     instantGain: 0
     bonusLifetime: 1
-  enableDestruction: 0
+  enableDestruction: 1
   destructionSettings:
     maxDistance: 2
-    spawnDelay: 0.2
+    spawnDelay: 0.3
     duration: 0.3
     scaleCurve:
       serializedVersion: 2
@@ -788,20 +788,20 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  enableCollision: 0
+  enableCollision: 1
   collisionSettings:
-    radius: 0.5
-    pushFactor: 1
-    desiredDirection: {x: 0, y: 0, z: 0}
-  enablePush: 1
+    radius: 2
+    pushFactor: 0.5
+    desiredDirection: {x: 0, y: 2, z: 0}
+  enablePush: 0
   pushSettings:
-    radius: 4
-    pushOffset: 0.6
+    radius: 3
+    pushOffset: 1
   updateDelay: 0.0125
   enablePooling: 0
   poolSize: 50
   disableOnSceneLoad: 1
-  editorLastFont: Neon-Red
+  editorLastFont: Neon-Red3D
   position: {x: 0, y: 0, z: 0}
 --- !u!210 &8483045734099835798
 SortingGroup:

@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityUtils;
 
-
 public class BombAttack : MonoBehaviour, IAttack
 {
     IEntity enemy;
@@ -22,4 +21,5 @@ public class BombAttack : MonoBehaviour, IAttack
     {
         ParticlePool.Play(ParticleType.Bomb, transform.position.With(y:Particle_Height), Quaternion.identity);
     }
+
 }
