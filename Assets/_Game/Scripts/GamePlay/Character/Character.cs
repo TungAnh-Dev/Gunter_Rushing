@@ -1,23 +1,33 @@
 
+using System.Collections.Generic;
+using UnityEngine;
 
 public abstract class Character : GameUnit, IEntity
 {
     protected Anim anim;
     protected HealthComponent health;
-
-    public HealthComponent Health { get => health;}
+    [SerializeField] protected List<IOnDeathObserver> onDeathObservers = new List<IOnDeathObserver>();
 
     public virtual void OnInit()
     {
-        anim = GetComponent<Anim>();
-        health = GetComponent<HealthComponent>();
+        if(anim == null)
+        {
+            anim = GetComponent<Anim>();
+        }
+
+        if(health == null)
+        {
+            health = GetComponent<HealthComponent>();
+            
+        }
+
         health.OnInit();
     }
     public virtual void OnDeath()
     {
         // Logic xử lý khi chết
         anim.ChangeAnim(Constants.ANIM_DEATH);
-        health.HealthBar.OnDespawn();
+        OnDeathObserver();
     }
 
     public virtual void OnDespawn()
@@ -38,5 +48,23 @@ public abstract class Character : GameUnit, IEntity
     public void SetHealth(float hp)
     {
         health.currrentHp = hp;
+    }
+
+    public virtual void OnDeathObserverAdd(IOnDeathObserver observer)
+    {
+        onDeathObservers.Add(observer);
+    }
+
+    protected virtual void OnDeathObserver()
+    {
+        foreach (IOnDeathObserver observer in this.onDeathObservers)
+        {
+            observer.OnDeath();
+        }
+    }
+
+    public HealthComponent GetHealthComponent()
+    {
+        return health;
     }
 }

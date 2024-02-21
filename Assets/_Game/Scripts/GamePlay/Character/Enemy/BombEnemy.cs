@@ -30,7 +30,7 @@ public class BombEnemy : Enemy
 
     private void SeftDestruct()
     {
-        if(Health.IsDead) return;
+        if(health.IsDead) return;
 
         OnAttack();
     }

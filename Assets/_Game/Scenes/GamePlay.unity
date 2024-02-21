@@ -1126,18 +1126,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bomb
       objectReference: {fileID: 0}
-    - target: {fileID: 401926352135130726, guid: b3efb87c1cdcb334f8a4cee2c2f52dca, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1069672324742141138, guid: b3efb87c1cdcb334f8a4cee2c2f52dca, type: 3}
-      propertyPath: damageNumber
-      value: 
-      objectReference: {fileID: 8483045734099835799, guid: bf81c86fedb025947961719281578bc8, type: 3}
-    - target: {fileID: 1069672324742141138, guid: b3efb87c1cdcb334f8a4cee2c2f52dca, type: 3}
-      propertyPath: damageNumberGUI
-      value: 
-      objectReference: {fileID: 1106664364040897239, guid: d618cfa66a80ea1489ff522ae875e128, type: 3}
     - target: {fileID: 1069672324742141148, guid: b3efb87c1cdcb334f8a4cee2c2f52dca, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -1202,10 +1190,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 815607710, guid: bfc9e79cac10a8248bec5e3d33c78f28, type: 3}
-      propertyPath: damageNumber
-      value: 
-      objectReference: {fileID: 8483045734099835799, guid: f98ee5d02c3e49148a3b44fa5bbcc960, type: 3}
     - target: {fileID: 7571304358747594889, guid: bfc9e79cac10a8248bec5e3d33c78f28, type: 3}
       propertyPath: m_RootOrder
       value: 2

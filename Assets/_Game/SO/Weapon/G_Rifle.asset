@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: G_Rifle
   m_EditorClassIdentifier: 
   name: 'Rifle '
-  damage: 1
+  damage: 10
   range: 9
   fireRate: 0.2
   muzzleVelocity: 10

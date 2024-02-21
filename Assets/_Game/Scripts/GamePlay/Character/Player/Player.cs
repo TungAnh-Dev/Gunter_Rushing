@@ -29,7 +29,7 @@ public class Player : Character
     #region Identify Target
     public virtual void AddTarget(Enemy newTarget)
     {
-        if (newTarget != null && newTarget != this && !newTarget.Health.IsDead)
+        if (newTarget != null && newTarget != this && !newTarget.GetHealthComponent().IsDead)
         {
             targets.Add(newTarget);
         }
@@ -68,7 +68,7 @@ public class Player : Character
 
     private bool IsValidTarget(Enemy potentialTarget, float range)
     {
-        return potentialTarget != null && potentialTarget != this && !potentialTarget.Health.IsDead && Vector3.Distance(TF.position, potentialTarget.TF.position) <= range;
+        return potentialTarget != null && potentialTarget != this && !potentialTarget.GetHealthComponent().IsDead && Vector3.Distance(TF.position, potentialTarget.TF.position) <= range;
     }
 
     #endregion

@@ -1,13 +1,15 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBar : GameUnit
+public class HealthBar : GameUnit, IOnDeathObserver
 {
     [SerializeField] Image imageFill;
     Vector3 offset;
     float hp;
     float maxHP;
     private Transform target;
+    IEntity entity;
 
     void Update()
     {
@@ -15,13 +17,19 @@ public class HealthBar : GameUnit
         transform.position = target.position + offset;
     }
 
-    public void OnInit(float maxHP, Transform target, Vector3 offset)
+    public void OnInit(IEntity entity,float maxHP, Transform target, Vector3 offset)
     {
         this.offset = offset;
         this.target = target;
         this.maxHP = maxHP;
         hp = maxHP;
+        this.entity = entity;
+
+        entity.GetHealthComponent().OnHealthChange += SetNewHp;
+
         imageFill.fillAmount = 1;
+        RegisterOnDeathEvent();
+        
     }
 
     public void SetNewHp(float hp)
@@ -40,5 +48,19 @@ public class HealthBar : GameUnit
         imageFill.color = color;
     }
 
+    public void OnDeath()
+    {
+        OnDespawn();
+    }
+
+    protected virtual void RegisterOnDeathEvent()
+    {
+        entity.OnDeathObserverAdd(this);
+    }
+
+    void OnDisable()
+    {
+        entity.GetHealthComponent().OnHealthChange -= SetNewHp;
+    }
 
 }

@@ -13,7 +13,7 @@ public class BombAttack : MonoBehaviour, IAttack
     public void OnAttack(Vector3 target)
     {
         Explode();
-        enemy.SetHealth(0f);
+        //enemy.SetHealth(0f);
         enemy.OnDeath();
     }
 

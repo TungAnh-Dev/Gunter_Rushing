@@ -1,32 +1,36 @@
+using System;
 using DamageNumbersPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityUtils;
 
-public class HealthComponent : MonoBehaviour, IHit
+public class HealthComponent : MonoBehaviour, IHit, IOnDeathObserver
 {
     IEntity entity;
     public float currrentHp;
     float maxHP;
     public bool IsDead => currrentHp <= 0;
-
-    HealthBar healthBar;
-    public HealthBar HealthBar { get => healthBar;}
-
-    [SerializeField] Vector3 offsetHealthBar;
-    [SerializeField] Color color;
     public DamageNumber damageNumber;
+
+    public event Action<float> OnHealthChange;
+    InitHealthBar initHealthBar;
 
     public void OnInit()
     {
+        if(initHealthBar == null)
+        {
+            initHealthBar = GetComponent<InitHealthBar>();
+        }
+
         if(entity == null)
         {
             entity = GetComponent<IEntity>();
             maxHP = entity.GetHealth();
+            RegisterOnDeathEvent();
         }
-
+        
         currrentHp = maxHP;
-        InitializeHealthBar(maxHP, this.transform, offsetHealthBar);
+        initHealthBar.InitializeHealthBar(entity, maxHP);
     }
 
     public void OnHit(float damage)
@@ -35,23 +39,27 @@ public class HealthComponent : MonoBehaviour, IHit
         {
             currrentHp -= damage;
 
+            OnHealthChange?.Invoke(currrentHp);
+
             if(IsDead)
             {
                 currrentHp = 0;
                 entity.OnDeath();
             }
 
-            healthBar.SetNewHp(currrentHp);
             //SimplePool.Spawn<CombatText>(PoolType.CombatText, transform.position.With(x:1,y:2), Quaternion.identity).OnInit(damage);
             damageNumber.Spawn(transform.position.With(y:1), damage);
 
         }
     }
 
-    private void InitializeHealthBar(float maxHp, Transform target, Vector3 offset)
+    public void OnDeath()
     {
-        healthBar = SimplePool.Spawn<HealthBar>(PoolType.HealthBar);
-        healthBar.OnInit(maxHp, target, offset); 
-        healthBar.SetColor(color);
+        currrentHp = 0;
+    }
+
+    private void RegisterOnDeathEvent()
+    {
+        entity.OnDeathObserverAdd(this);
     }
 }
