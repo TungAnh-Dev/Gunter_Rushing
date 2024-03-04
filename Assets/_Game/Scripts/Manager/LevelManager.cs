@@ -1,4 +1,5 @@
 
+using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelManager : Singleton<LevelManager>
@@ -12,7 +13,7 @@ public class LevelManager : Singleton<LevelManager>
     Level currentLevel;
     public Level CurrentLevel { get => currentLevel; }
     public Player Player { get => player;}
-    public Enemy enemy;
+    public List<Enemy> enemies = new List<Enemy>();
 
     private void Start() 
     {
@@ -20,7 +21,12 @@ public class LevelManager : Singleton<LevelManager>
         currentLevel.OnInit();
         startPoint = currentLevel.StartPointPlayer;
         player.OnInit();
-        enemy.OnInit();
+
+        foreach (Enemy enemy in enemies)
+        {
+            enemy.OnInit();
+        }
+        
     }
 
     void Update()
@@ -33,6 +39,6 @@ public class LevelManager : Singleton<LevelManager>
 
     public void Test()
     {
-        player.AddTarget(enemy);
+        player.AddTarget(enemies[1]);
     }
 }

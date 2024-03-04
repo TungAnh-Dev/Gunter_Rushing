@@ -8,6 +8,7 @@ public abstract class Character : GameUnit, IEntity
     protected HealthComponent health;
     [SerializeField] protected List<IOnDeathObserver> onDeathObservers = new List<IOnDeathObserver>();
 
+    public abstract Vector3 GetHeart();
     public virtual void OnInit()
     {
         if(anim == null)
@@ -43,11 +44,6 @@ public abstract class Character : GameUnit, IEntity
     public virtual float GetDamage()
     {
         return 0;
-    }
-
-    public void SetHealth(float hp)
-    {
-        health.currrentHp = hp;
     }
 
     public virtual void OnDeathObserverAdd(IOnDeathObserver observer)

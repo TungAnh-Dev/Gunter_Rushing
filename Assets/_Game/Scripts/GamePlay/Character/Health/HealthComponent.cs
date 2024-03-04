@@ -1,7 +1,6 @@
 using System;
 using DamageNumbersPro;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityUtils;
 
 public class HealthComponent : MonoBehaviour, IHit, IOnDeathObserver
@@ -61,5 +60,19 @@ public class HealthComponent : MonoBehaviour, IHit, IOnDeathObserver
     private void RegisterOnDeathEvent()
     {
         entity.OnDeathObserverAdd(this);
+    }
+
+    public void IncreaseHealthByPercentage(float percentage)
+    {
+        if (!IsDead)
+        {
+            float increaseAmount = maxHP * (percentage / 100f);
+            currrentHp += increaseAmount;
+
+            // Ensure current health doesn't exceed the maximum health
+            currrentHp = Mathf.Min(currrentHp, maxHP);
+
+            OnHealthChange?.Invoke(currrentHp);
+        }
     }
 }

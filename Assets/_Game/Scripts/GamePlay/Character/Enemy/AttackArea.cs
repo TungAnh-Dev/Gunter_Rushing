@@ -11,4 +11,10 @@ public class AttackArea : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+    public void TeleportTo(Vector3 target)
+    {
+        transform.position = target;
+    }
+
 }

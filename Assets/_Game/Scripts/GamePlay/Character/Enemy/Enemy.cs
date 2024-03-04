@@ -3,18 +3,20 @@ using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
-public class Enemy : Character
+public abstract class Enemy : Character
 {
     [SerializeField] protected NavMeshAgent agent;
     protected StateMachine stateMachine = new StateMachine();
     [SerializeField] protected EnemyData enemyData;
     protected float rangeAttack;
-    private float rangeVision;
+    protected float rangeVision;
     float wanderRadius;
     protected Player player;
-    IAttack attack;
+    protected IAttack attack;
     protected bool isAttacking;
-    [SerializeField] AttackArea attackArea;
+    [SerializeField] protected AttackArea attackArea;
+    protected float timeToResetAttack;
+    protected float damage;
 
     void Start()
     {
@@ -36,7 +38,7 @@ public class Enemy : Character
         agent.isStopped = false;
         stateMachine.ChangeState(IdleState);
         isAttacking = false;
-        attackArea.InactiveAttackArea();
+        attackArea?.InactiveAttackArea();
     }
 
     public override float GetHealth() => enemyData.Health;
@@ -53,11 +55,13 @@ public class Enemy : Character
 
     private void LoadData()
     {
+        timeToResetAttack = enemyData.TimeToResetAttack;
         agent.speed = enemyData.MoveSpeed;
         rangeAttack = enemyData.RangeAttack;
         rangeVision = enemyData.RangeVision;
         wanderRadius = enemyData.WanderRadius;
         player = LevelManager.Instance.Player;
+        damage = enemyData.Damage;
     }
 
     protected void ChaseTarget(Vector3 target)
@@ -66,13 +70,15 @@ public class Enemy : Character
         agent.SetDestination(target);
     }
 
-    public virtual Vector3 GetHeart() => Vector3.zero;
+    public void PlayHealParticle() => ParticlePool.Play(ParticleType.HealOnceCylinder, TF.position, Quaternion.Euler(-90f, 0f, 0f));
+
+    
 
 
 
 
     #region StateMachine
-    protected void IdleState(ref Action onEnter, ref Action onExecute, ref Action onExit)
+    protected virtual void IdleState(ref Action onEnter, ref Action onExecute, ref Action onExit)
     {
         float ramdonTime = Random.Range(0.5f, 1f); 
         float idleTimer = 0f;
@@ -98,7 +104,7 @@ public class Enemy : Character
 
     }
 
-    protected void PatrolState(ref Action onEnter, ref Action onExecute, ref Action onExit)
+    protected virtual void PatrolState(ref Action onEnter, ref Action onExecute, ref Action onExit)
     {
         onEnter = () =>
         {
@@ -134,7 +140,7 @@ public class Enemy : Character
                 && (!agent.hasPath || agent.velocity.sqrMagnitude == 0f);
     }
 
-    private void RandomDestination()
+    protected void RandomDestination()
     {
         var randomDirection = Random.insideUnitSphere * wanderRadius;
         randomDirection += TF.position;
@@ -170,6 +176,8 @@ public class Enemy : Character
 
         onExecute = () =>
         {
+            if(isAttacking) return;
+            
             if(PlayerIsInRange(rangeAttack))
             {
                 if(CanAttack())
@@ -199,17 +207,19 @@ public class Enemy : Character
 
         anim.ChangeAnim(Constants.ANIM_ATTACK);
         
-        attackArea.ActiveAttackArea();
-        attack?.OnAttack(player.TF.position);
+        ActiveAttackArea();
+        attack?.OnAttack(player.GetHeart());
         
 
-        Invoke(nameof(ResetAttack), enemyData.TimeToResetAttack);
+        Invoke(nameof(ResetAttack), timeToResetAttack);
         
     }
 
-    private void ResetAttack()
+    protected void ActiveAttackArea() => attackArea?.ActiveAttackArea();
+
+    protected virtual void ResetAttack()
     {
-        attackArea.InactiveAttackArea();
+        attackArea?.InactiveAttackArea();
         anim.ResetAnim();
         isAttacking = false;
     }

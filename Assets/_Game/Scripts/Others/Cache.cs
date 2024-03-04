@@ -28,5 +28,17 @@ public static class Cache
         return characters[collider];
     }
 
+    private static Dictionary<Collider, Enemy> enemies = new Dictionary<Collider, Enemy>();
+
+    public static Enemy GetEnemy(Collider collider)
+    {
+        if (!enemies.ContainsKey(collider))
+        {
+            enemies.Add(collider, collider.GetComponent<Enemy>());
+        }
+
+        return enemies[collider];
+    }
+
 
 }

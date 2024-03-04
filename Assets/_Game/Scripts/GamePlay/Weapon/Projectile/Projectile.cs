@@ -5,7 +5,7 @@ public class Projectile : GameUnit
     [SerializeField] protected WeaponData weaponData;
     protected float projectileSpeed;
     private float damge;
-    public Vector3 target;
+    protected Vector3 target;
 
     public float Damge { get => damge;}
 
@@ -17,6 +17,7 @@ public class Projectile : GameUnit
     public virtual void OnInit(Vector3 target)
     {
         TF.forward = (target - TF.position).normalized;
+        this.target = target;
     }
 
     public virtual void Launch(Vector3 target)

@@ -6,7 +6,6 @@ public class Laser : Projectile
     {
         base.OnInit(target);
         ResetTransform();
-        this.target = target;
     }
 
     private void ResetTransform()

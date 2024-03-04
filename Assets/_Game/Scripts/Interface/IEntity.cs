@@ -5,7 +5,6 @@ public interface IEntity
     void OnDespawn();
     float GetHealth();
     float GetDamage();
-    void SetHealth(float hp);
     void OnDeathObserverAdd(IOnDeathObserver observer);
     HealthComponent GetHealthComponent();
 

@@ -139,6 +139,10 @@ public class ParticleAmount
 public enum ParticleType
 {
     Bomb,
+    Orbital_Beam_Red,
+    HealOnceCylinder,
+    Buff_Green,
+    
 }
 
 public enum PoolType
@@ -157,7 +161,26 @@ public enum PoolType
     P_Laser,
 
     HealthBar,
-    E_Bomb,
+
+    // Melee
+    Wolf,
+    Bomb,
+    Golem,
+
+    //Range
+    Magma,
+    Bee,
+    ChargeSphere,
+
+    //Buff
+    Treant,
+    // Boss
+    Dragon,
+
+
+
+
+    
     
     
 

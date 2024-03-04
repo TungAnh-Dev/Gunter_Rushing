@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Player : Character
 {
+    public static readonly Vector3 Heart = new Vector3(0f, 0.5f, 0f);
     [SerializeField] PlayerData playerData;
     public Level level;
     public Weapon[] currentWeapon = new Weapon[4];
@@ -24,6 +25,8 @@ public class Player : Character
         base.OnInit();
         TF.position = LevelManager.Instance.StartPoint;
     }
+
+    public override Vector3 GetHeart() => Heart + TF.position;
 
 
     #region Identify Target
