@@ -9,6 +9,9 @@ public class Constants
 
     public const string TAG_ENEMY = "Enemy";
     public const string WEAPON_SHOOT = "shoot";
+    public const string ANIM_FIRE_BREATH_ATTACK = "fire_breath_attack";
+    public const string ANIM_PROJECTILE_ATTACK = "projectile_attack";
+    public const string ANIM_CAST_SPELL = "cast_spell";
 }
 
 public enum WeaponType

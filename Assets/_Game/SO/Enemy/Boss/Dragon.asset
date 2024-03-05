@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f468a5e384632541938a9676b09a100, type: 3}
-  m_Name: Treant
+  m_Name: Dragon
   m_EditorClassIdentifier: 
-  name: Treant
-  damage: 20
-  moveSpeed: 5
-  rangeVision: 8
-  rangeAttack: 0
-  health: 200
-  wanderRadius: 3
-  timeToResetAttack: 2
+  name: Dragon
+  damage: 10
+  moveSpeed: 6
+  rangeVision: 100
+  rangeAttack: 10
+  health: 1000
+  wanderRadius: 8
+  timeToResetAttack: 1
   timeToDespawn: 1

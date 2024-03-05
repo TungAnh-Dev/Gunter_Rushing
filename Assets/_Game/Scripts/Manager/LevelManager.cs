@@ -26,8 +26,9 @@ public class LevelManager : Singleton<LevelManager>
         {
             enemy.OnInit();
         }
-        
     }
+
+
 
     void Update()
     {

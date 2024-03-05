@@ -1,14 +1,13 @@
 using UnityEngine;
 
 
-public class HitTrigger : MonoBehaviour
+public class EnemyHitTrigger : MonoBehaviour
 {
-    IEntity entity;
+    [SerializeField] EnemyData enemyData;
     float damage;
     void Start()
     {
-        entity = GetComponentInParent<IEntity>();
-        damage = entity.GetDamage();
+        damage = enemyData.Damage;
     }
 
     void OnTriggerEnter(Collider other)
