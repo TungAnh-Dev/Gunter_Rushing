@@ -12,10 +12,11 @@ public class Player : Character
     List<Enemy> targets = new List<Enemy>();
     private Enemy target;
 
+
     void Start()
     {
         playerAutoAttack = GetComponent<PlayerAutoAttack>();
-        currentWeapon[0] = SimplePool.Spawn<Weapon>(PoolType.G_Rifle, weaponPosition[0]);
+        currentWeapon[0] = Instantiate(currentWeapon[0], weaponPosition[1]);
         //currentWeapon[1] = SimplePool.Spawn<Weapon>(PoolType.G_Shuriken, weaponPosition[1]);
         playerAutoAttack.UpdateWeapon(currentWeapon[0]);
         //playerAutoAttack.UpdateWeapon(currentWeapon[1]);

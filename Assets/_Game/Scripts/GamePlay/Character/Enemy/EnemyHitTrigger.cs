@@ -3,11 +3,12 @@ using UnityEngine;
 
 public class EnemyHitTrigger : MonoBehaviour
 {
-    [SerializeField] EnemyData enemyData;
+    IEntity entity;
     float damage;
     void Start()
     {
-        damage = enemyData.Damage;
+        entity = GetComponentInParent<IEntity>();
+        damage = entity.GetDamage();
     }
 
     void OnTriggerEnter(Collider other)

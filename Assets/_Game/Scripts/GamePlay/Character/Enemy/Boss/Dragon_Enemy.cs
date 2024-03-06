@@ -11,7 +11,7 @@ public class Dragon_Enemy : E_Boss
 
     protected override void OnAttack()
     {
-        ProjectileAttack();
+        FlameThrowerAttack();
         // phun lua
         //loc xoay
     }
@@ -39,24 +39,24 @@ public class Dragon_Enemy : E_Boss
     }
     #endregion
 
-    // private void TorAttack()
-    // {
-    //     isAttacking = true;
+    private void FlameThrowerAttack()
+    {
+        isAttacking = true;
 
-    //     TF.LookAt(player.TF);
+        TF.LookAt(player.TF);
 
 
-    //     attack?.OnAttack(player.GetHeart());
+        attack?.OnAttack(player.GetHeart());
 
-    //     anim.ChangeAnim(Constants.ANIM_PROJECTILE_ATTACK);
-    //     Invoke(nameof(CastSpellProjectile), 0.25f);
+        anim.ChangeAnim(Constants.ANIM_FIRE_BREATH_ATTACK);
+        Invoke(nameof(CastSpellFlameThrower), 0.25f);
 
-    //     Invoke(nameof(ResetAttack), timeToResetAttack);
-    // }
+        Invoke(nameof(ResetAttack), timeToResetAttack);
+    }
 
-    // private void CastSpellProjectile()
-    // {
-    //     spells[0].CastSpell(muzzle);
-    //     Invoke(nameof(ActiveAttackArea), 0.1f);
-    // }
+    private void CastSpellFlameThrower()
+    {
+        spells[1].CastSpell(muzzle);
+        Invoke(nameof(ActiveAttackArea), 0.1f);
+    }
 }

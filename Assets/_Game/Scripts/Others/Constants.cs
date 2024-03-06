@@ -14,13 +14,6 @@ public class Constants
     public const string ANIM_CAST_SPELL = "cast_spell";
 }
 
-public enum WeaponType
-{
-    G_Shuriken = PoolType.G_Shuriken,
-    G_Rifle = PoolType.G_Rifle, // AK47
-    G_RevolvingGrenade = PoolType.G_RevolvingGrenade,
-    G_Flame = PoolType.G_Laser,
-}
 
 public enum ProjectileType
 {

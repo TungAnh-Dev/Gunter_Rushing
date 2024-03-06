@@ -177,6 +177,7 @@ public enum PoolType
     Treant,
     // Boss
     Dragon,
+    FlameThrower,
 
 
 
