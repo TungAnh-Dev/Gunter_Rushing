@@ -143,7 +143,6 @@ public enum ParticleType
     HealOnceCylinder,
     Buff_Green,
     Cleave_Fire,
-
 }
 
 public enum PoolType
@@ -170,7 +169,6 @@ public enum PoolType
 
     //Range
     Magma,
-    Bee,
     ChargeSphere,
 
     //Buff
@@ -178,6 +176,8 @@ public enum PoolType
     // Boss
     Dragon,
     FlameThrower,
+    Bee,
+    
 
 
 

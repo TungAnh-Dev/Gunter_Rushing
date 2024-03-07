@@ -17,8 +17,10 @@ public class Player : Character
     {
         playerAutoAttack = GetComponent<PlayerAutoAttack>();
         currentWeapon[0] = Instantiate(currentWeapon[0], weaponPosition[1]);
+        currentWeapon[1] = Instantiate(currentWeapon[0], weaponPosition[0]);
         //currentWeapon[1] = SimplePool.Spawn<Weapon>(PoolType.G_Shuriken, weaponPosition[1]);
         playerAutoAttack.UpdateWeapon(currentWeapon[0]);
+        playerAutoAttack.UpdateWeapon(currentWeapon[1]);
         //playerAutoAttack.UpdateWeapon(currentWeapon[1]);
     }
     public override void OnInit()

@@ -39,6 +39,7 @@ public abstract class Enemy : Character
         stateMachine.ChangeState(IdleState);
         isAttacking = false;
         attackArea?.InactiveAttackArea();
+        LevelManager.Instance.AddEnemyToList(this);
     }
 
     public override float GetHealth() => enemyData.Health;
@@ -50,6 +51,7 @@ public abstract class Enemy : Character
         base.OnDeath();
         agent.isStopped = true;
         Invoke(nameof(OnDespawn), enemyData.TimeToDespawn);
+        LevelManager.Instance.RemoveEnemyToList(this);
     }
 
 
@@ -70,11 +72,8 @@ public abstract class Enemy : Character
         agent.SetDestination(target);
     }
 
-    public void PlayHealParticle() => ParticlePool.Play(ParticleType.HealOnceCylinder, TF.position, Quaternion.Euler(-90f, 0f, 0f));
-
-    
-
-
+    public void PlayHealParticle()
+             => ParticlePool.Play(ParticleType.HealOnceCylinder, TF.position, Quaternion.Euler(-90f, 0f, 0f));
 
 
     #region StateMachine

@@ -1,4 +1,3 @@
-
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,40 +5,62 @@ public class LevelManager : Singleton<LevelManager>
 {
     Vector3 startPoint;
     public Vector3 StartPoint { get => startPoint;}
-
-
     [SerializeField] Level[] levels;
     [SerializeField] Player player;
     Level currentLevel;
-    public Level CurrentLevel { get => currentLevel; }
+    int levelIndex;
     public Player Player { get => player;}
-    public List<Enemy> enemies = new List<Enemy>();
+    public Level CurrentLevel { get => currentLevel;}
+
+    List<Enemy> enemies = new List<Enemy>();
+    
 
     private void Start() 
     {
-        currentLevel = levels[0];
-        currentLevel.OnInit();
-        startPoint = currentLevel.StartPointPlayer;
+        levelIndex = 0;
+        OnLoadLevel(levelIndex);
         player.OnInit();
-
-        foreach (Enemy enemy in enemies)
-        {
-            enemy.OnInit();
-        }
+        UIManager.Instance.OpenUI<UI_GamePlay>();
     }
-
-
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.V))
-        {
-            Test();
-        }
+        
     }
 
-    public void Test()
+    private void OnLoadLevel(int levelIndex)
     {
-        player.AddTarget(enemies[1]);
+        if(currentLevel != null)
+        {
+            Destroy(currentLevel.gameObject);
+        }
+
+        currentLevel = Instantiate(levels[levelIndex]);
+        currentLevel.OnInit();
+        startPoint = currentLevel.StartPointPlayer;
     }
+
+    public void NextLevel()
+    {
+        levelIndex++;
+        OnLoadLevel(levelIndex);
+    }
+
+    public void AddEnemyToList(Enemy newEnemy)
+    {
+        enemies.Add(newEnemy);
+        player.AddTarget(newEnemy);
+    }
+
+    public void RemoveEnemyToList(Enemy oldEnemy)
+    {
+        enemies.Remove(oldEnemy);
+        player.RemoveTarget(oldEnemy);
+    }
+
+    public bool AllEnemyDead() => enemies.Count <= 0;
+
+
+
+
 }

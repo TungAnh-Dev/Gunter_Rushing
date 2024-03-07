@@ -233,7 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ab651aeaca62b34696e059e470f02ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolType: 14
+  poolType: 18
   agent: {fileID: 7148666028030028162}
   enemyData: {fileID: 11400000, guid: 6615f74d7fef3fc4dba69751ccec05f3, type: 2}
   attackArea: {fileID: 0}

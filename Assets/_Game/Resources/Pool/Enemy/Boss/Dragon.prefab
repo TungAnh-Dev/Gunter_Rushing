@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a251cd288ca88ed4184b1735ac288161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolType: 13
+  poolType: 16
   agent: {fileID: 6382199576722794451}
   enemyData: {fileID: 11400000, guid: 4189edabd1432a145adfea930137fbad, type: 2}
   attackArea: {fileID: 4857630544196928358}

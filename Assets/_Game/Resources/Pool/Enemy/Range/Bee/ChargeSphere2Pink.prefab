@@ -4907,7 +4907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f10705fb0a63f9f4ca223838155fd275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolType: 15
+  poolType: 14
   disLimit: 40
 --- !u!135 &6650068700953355241
 SphereCollider:

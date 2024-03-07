@@ -85,8 +85,8 @@ GameObject:
   - component: {fileID: 3388078329424617996}
   - component: {fileID: 1990268542740783148}
   - component: {fileID: 1990268542740783149}
-  - component: {fileID: 1990268542740783146}
   - component: {fileID: 1990268542740783151}
+  - component: {fileID: 6067117910232496787}
   m_Layer: 7
   m_Name: Magma
   m_TagString: Untagged
@@ -188,22 +188,6 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0.63, z: 0}
---- !u!114 &1990268542740783146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2616327391898630328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58178cabbadec69409bdc8c36ea61bb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  poolType: 13
-  agent: {fileID: 1990268542740783148}
-  enemyData: {fileID: 11400000, guid: 5e227bb3e1934e446a24adb999b9f681, type: 2}
-  attackArea: {fileID: 2440073611488939030}
 --- !u!114 &1990268542740783151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,6 +200,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7543d1a014070d74a8496d1f9fb410ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackArea: {fileID: 2440073611488939030}
+--- !u!114 &6067117910232496787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2616327391898630328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26472d9b3da825145b69e5c344a8c995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolType: 13
+  agent: {fileID: 1990268542740783148}
+  enemyData: {fileID: 11400000, guid: 5e227bb3e1934e446a24adb999b9f681, type: 2}
   attackArea: {fileID: 2440073611488939030}
 --- !u!1 &2923259813814848110
 GameObject:
