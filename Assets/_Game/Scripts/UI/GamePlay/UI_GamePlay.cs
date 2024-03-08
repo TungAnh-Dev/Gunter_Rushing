@@ -9,5 +9,13 @@ public class UI_GamePlay : UICanvas
     {
         base.Setup();
         display_Gameplay.OnInit();
+        GameManager.Instance.ChangeState(GameState.GamePlay);
     }
+
+    public void SettingBtn()
+    {
+        UIManager.Instance.OpenUI<UI_Setting>();
+    }
+
+
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 842332733949086990}
   - component: {fileID: 5186421016151182239}
   - component: {fileID: 8969249675902488563}
+  - component: {fileID: -1825537742365954418}
   m_Layer: 0
   m_Name: G_Laser
   m_TagString: Untagged
@@ -77,6 +78,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 2951870979534029494}
+--- !u!114 &-1825537742365954418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476597677736364995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_IgnoreFromBuild: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &1195369412565223630
 GameObject:
   m_ObjectHideFlags: 0

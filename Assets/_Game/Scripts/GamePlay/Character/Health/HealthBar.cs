@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBar : GameUnit, IOnDeathObserver
+public class HealthBar : GameUnit, IOnDeathObserver, IMenuObserver
 {
     [SerializeField] Image imageFill;
     Vector3 offset;
@@ -13,6 +13,8 @@ public class HealthBar : GameUnit, IOnDeathObserver
 
     void Update()
     {
+        if(!GameManager.Instance.IsState(GameState.GamePlay)) return;
+        
         imageFill.fillAmount = Mathf.Lerp(imageFill.fillAmount, hp / maxHP, Time.deltaTime*5f);
         transform.position = target.position + offset;
     }
@@ -29,6 +31,7 @@ public class HealthBar : GameUnit, IOnDeathObserver
 
         imageFill.fillAmount = 1;
         RegisterOnDeathEvent();
+        RegisterOnMenuEvent();
         
     }
 
@@ -63,4 +66,13 @@ public class HealthBar : GameUnit, IOnDeathObserver
         entity.GetHealthComponent().OnHealthChange -= SetNewHp;
     }
 
+    public void OnMenuEvent()
+    {
+        OnDespawn();
+    }
+
+    private void RegisterOnMenuEvent()
+    {
+        LevelManager.Instance.AddObserver(this);
+    }
 }

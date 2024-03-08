@@ -526,15 +526,13 @@ MonoBehaviour:
   playerData: {fileID: 11400000, guid: a0f8873ccab1b5145ac89cf6824f75b5, type: 2}
   level: {fileID: 0}
   currentWeapon:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1377556190833180047, guid: 2a50c3e6c34e5824884c713d535d4dd6, type: 3}
+  - {fileID: 842332733949086990, guid: d60bbc1521cba0547aeb0408dd34153e, type: 3}
+  - {fileID: 5868720003176194776, guid: 24e32eb17fc43b94a80be6cff916ca78, type: 3}
+  - {fileID: 9121004631514178536, guid: 428aec0c09fb874458f618ca94480573, type: 3}
   weaponPosition:
   - {fileID: 2684715051340719070}
   - {fileID: 4080593850201569957}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &815607710
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Wolf
   m_EditorClassIdentifier: 
   name: Wolf
-  damage: 1
+  damage: 10
   moveSpeed: 4
-  rangeVision: 6
+  rangeVision: 10
   rangeAttack: 2.5
   health: 100
-  wanderRadius: 6
+  wanderRadius: 10
   timeToResetAttack: 1
   timeToDespawn: 1

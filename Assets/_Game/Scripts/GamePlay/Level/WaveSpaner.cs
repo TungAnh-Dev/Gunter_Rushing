@@ -17,6 +17,8 @@ public class WaveSpaner : MonoBehaviour
 
     void Update()
     {
+        if(!GameManager.Instance.IsState(GameState.GamePlay)) return;
+
         if(CanSpawnWaveEnemy())
         {
             if (timeDelayAppearWaveCounter <= 0)
@@ -34,6 +36,7 @@ public class WaveSpaner : MonoBehaviour
         if(IsEndLevel()) 
         {
             OnWaveEndObserver();
+            LevelManager.Instance.OnVictory();
             isEndLevel = true;
         }
     }

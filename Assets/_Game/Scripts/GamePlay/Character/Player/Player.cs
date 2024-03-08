@@ -23,11 +23,6 @@ public class Player : Character
         playerAutoAttack.UpdateWeapon(currentWeapon[1]);
         //playerAutoAttack.UpdateWeapon(currentWeapon[1]);
     }
-    public override void OnInit()
-    {
-        base.OnInit();
-        TF.position = LevelManager.Instance.StartPoint;
-    }
 
     public override Vector3 GetHeart() => Heart + TF.position;
 
@@ -82,13 +77,9 @@ public class Player : Character
     #region Health
     public override void OnDeath()
     {
+        LevelManager.Instance.OnFail();
         base.OnDeath();
         Destroy(gameObject, 1f);
-    }
-
-    public override void OnDespawn()
-    {
-        // Logic xử lý khi despawn
     }
 
     public override float GetHealth()

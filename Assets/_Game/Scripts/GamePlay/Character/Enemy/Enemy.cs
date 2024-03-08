@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
-public abstract class Enemy : Character
+public abstract class Enemy : Character, IMenuObserver
 {
     [SerializeField] protected NavMeshAgent agent;
     protected StateMachine stateMachine = new StateMachine();
@@ -26,7 +26,7 @@ public abstract class Enemy : Character
    
     void Update()
     {
-        if(health.IsDead) return;
+        if(health.IsDead || !GameManager.Instance.IsState(GameState.GamePlay)) return;
         
         stateMachine?.Execute();
     }
@@ -40,6 +40,7 @@ public abstract class Enemy : Character
         isAttacking = false;
         attackArea?.InactiveAttackArea();
         LevelManager.Instance.AddEnemyToList(this);
+        RegisterOnMenuEvent();
     }
 
     public override float GetHealth() => enemyData.Health;
@@ -62,7 +63,7 @@ public abstract class Enemy : Character
         rangeAttack = enemyData.RangeAttack;
         rangeVision = enemyData.RangeVision;
         wanderRadius = enemyData.WanderRadius;
-        player = LevelManager.Instance.Player;
+        player = LevelManager.Instance.CurrentPlayer;
         damage = enemyData.Damage;
     }
 
@@ -228,7 +229,19 @@ public abstract class Enemy : Character
         return !isAttacking;
     }
 
+
     #endregion
 
+
+    public void OnMenuEvent()
+    {
+        OnDespawn();
+        LevelManager.Instance.RemoveEnemyToList(this);
+    }
+
+    private void RegisterOnMenuEvent()
+    {
+        LevelManager.Instance.AddObserver(this);
+    }
 
 }

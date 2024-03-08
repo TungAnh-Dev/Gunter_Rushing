@@ -6,7 +6,7 @@ public class CleaveSpell : SpellStrategy
 {
     public override void CastSpell(Transform origin)
     {
-        Vector3 directionToPlayer = (LevelManager.Instance.Player.TF.position - origin.position).normalized;
+        Vector3 directionToPlayer = (LevelManager.Instance.CurrentPlayer.TF.position - origin.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(directionToPlayer);
         float angle = lookRotation.eulerAngles.y;
 

@@ -15,9 +15,9 @@ MonoBehaviour:
   name: Magma
   damage: 10
   moveSpeed: 4
-  rangeVision: 9
+  rangeVision: 10
   rangeAttack: 7
   health: 100
-  wanderRadius: 6
+  wanderRadius: 10
   timeToResetAttack: 3
   timeToDespawn: 1

@@ -13,6 +13,8 @@ public class PlayerAutoAttack : MonoBehaviour
 
     void Update()
     {
+        if(!GameManager.Instance.IsState(GameState.GamePlay)) return;
+        
         AutoAttack();
     }
 

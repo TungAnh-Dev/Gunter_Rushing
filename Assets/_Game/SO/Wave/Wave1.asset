@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemisInWave:
   - {fileID: 1944785100389817405, guid: 99d6024a7e36c394f9eceecfb1849904, type: 3}
+  - {fileID: 6067117910232496787, guid: 770dc00f7d31ea94390957c7e5484650, type: 3}
+  - {fileID: 3110872852069505999, guid: 42bab2c83f3522c4c94ffc226ed5ab54, type: 3}
   timeDelayAppearWave: 0.5
-  numberToSpawn: 6
+  numberToSpawn: 8

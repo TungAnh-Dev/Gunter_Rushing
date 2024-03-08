@@ -15,9 +15,9 @@ MonoBehaviour:
   name: Treant
   damage: 20
   moveSpeed: 5
-  rangeVision: 8
+  rangeVision: 10
   rangeAttack: 0
   health: 200
-  wanderRadius: 3
+  wanderRadius: 10
   timeToResetAttack: 2
   timeToDespawn: 1

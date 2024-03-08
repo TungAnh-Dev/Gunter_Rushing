@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if(!GameManager.Instance.IsState(GameState.GamePlay)) return;
+        
         transform.position = JoystickControl.direct * moveSpeed * Time.deltaTime + transform.position;
 
         if (JoystickControl.direct != Vector3.zero)

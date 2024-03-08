@@ -17,4 +17,4 @@ MonoBehaviour:
   - {fileID: 1181123577385609252, guid: e88d7d6c6b399484cb1a303bc230eb8c, type: 3}
   - {fileID: 1944785100389817405, guid: 99d6024a7e36c394f9eceecfb1849904, type: 3}
   timeDelayAppearWave: 3
-  numberToSpawn: 6
+  numberToSpawn: 10
