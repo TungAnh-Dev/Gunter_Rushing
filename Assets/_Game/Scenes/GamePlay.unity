@@ -902,9 +902,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TF: {fileID: 963194228}
-  offset: {x: 0, y: 20, z: -15}
-  maxLeftLimit: -2
-  maxRightLimit: 2
+  offset: {x: 0, y: 25, z: -15}
+  maxLeftLimit: -3
+  maxRightLimit: 3
 --- !u!1 &1081476914
 GameObject:
   m_ObjectHideFlags: 0

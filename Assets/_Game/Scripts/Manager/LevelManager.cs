@@ -65,13 +65,13 @@ public class LevelManager : Singleton<LevelManager>
     public void AddEnemyToList(Enemy newEnemy)
     {
         enemies.Add(newEnemy);
-        currentPlayer.AddTarget(newEnemy);
+        currentPlayer?.AddTarget(newEnemy);
     }
 
     public void RemoveEnemyToList(Enemy oldEnemy)
     {
         enemies.Remove(oldEnemy);
-        currentPlayer.RemoveTarget(oldEnemy);
+        currentPlayer?.RemoveTarget(oldEnemy);
     }
 
     public bool AllEnemyDead() => enemies.Count <= 0;
