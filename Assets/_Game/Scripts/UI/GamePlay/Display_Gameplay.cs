@@ -17,10 +17,14 @@ public class Display_Gameplay : MonoBehaviour, IWaveObserver
         waveText.gameObject.SetActive(false);
         completeLevelText.gameObject.SetActive(false);
         levelText.SetText(LevelManager.Instance.CurrentLevel.levelName);
-
-        FallAndFadeOutText(Time_Delay); 
+        
+        Invoke(nameof(FallAndFadeOutTextDelay), 0.5f);
     }
 
+    private void FallAndFadeOutTextDelay()
+    {
+        FallAndFadeOutText(Time_Delay);
+    }
 
     private void FallAndFadeOutText(float duration)
     {

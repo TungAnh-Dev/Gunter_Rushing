@@ -13,6 +13,8 @@ public class WaveSpaner : MonoBehaviour
     private bool stopSpawning;
     private bool isEndLevel;
     [SerializeField] List<IWaveObserver> observers = new List<IWaveObserver>();
+    int num, num2;
+
 
 
     void Update()
@@ -59,13 +61,13 @@ public class WaveSpaner : MonoBehaviour
     {
         for (int i = 0; i < currentWave.numberToSpawn; i++)
         {
-            int num = Random.Range(0, currentWave.enemisInWave.Length);
-            int num2 = Random.Range(0, spawnPoints.Length); 
+            num = Random.Range(0, currentWave.enemisInWave.Length);
+            num2 = Random.Range(0, spawnPoints.Length);
 
-            //Instantiate(currentWave.enemisInWase[num], spawnPoints[num2].position, spawnPoints[num2].rotation);
-            Enemy newEnemy = SimplePool.Spawn<Enemy>(currentWave.enemisInWave[num].poolType, spawnPoints[num2].position, spawnPoints[num2].rotation);
+            Enemy newEnemy = SimplePool.Spawn<Enemy>
+                            (currentWave.enemisInWave[num].poolType, spawnPoints[num2].position, spawnPoints[num2].rotation);
             newEnemy.OnInit();
-            
+
         }
         OnWaveStartObserver();
     }

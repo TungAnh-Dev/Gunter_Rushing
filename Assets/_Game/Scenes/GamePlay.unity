@@ -258,6 +258,10 @@ MonoBehaviour:
     particleType: 4
     prefab: {fileID: 905505988951009374, guid: e5b0d25fb29351b479d4a8de0ba30e16, type: 3}
     amount: 1
+  - root: {fileID: 661122714}
+    particleType: 5
+    prefab: {fileID: 198496318621895786, guid: 1f71a30319178e04bb7ccbb4eb0f8e31, type: 3}
+    amount: 1
 --- !u!4 &231056668
 Transform:
   m_ObjectHideFlags: 0
@@ -310,6 +314,7 @@ MonoBehaviour:
   - {fileID: 4073406206306880908, guid: 45a9a5b559ebf9e45ae4dbaa8058fe01, type: 3}
   - {fileID: 4073406206306880908, guid: 512a20bd16d76fe498a57512517e3f36, type: 3}
   - {fileID: 4073406206306880908, guid: 7815657a083666a4893f66303beef8a2, type: 3}
+  - {fileID: 4073406206306880908, guid: e828f1ba2cf04314ea6122ad19b78a4b, type: 3}
   player: {fileID: 7571304358747594894, guid: bfc9e79cac10a8248bec5e3d33c78f28, type: 3}
   enemies: []
 --- !u!4 &439574324

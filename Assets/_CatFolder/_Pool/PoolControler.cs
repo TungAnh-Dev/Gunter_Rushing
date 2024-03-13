@@ -143,6 +143,7 @@ public enum ParticleType
     HealOnceCylinder,
     Buff_Green,
     Cleave_Fire,
+    Appear_Red,
 }
 
 public enum PoolType

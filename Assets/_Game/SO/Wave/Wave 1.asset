@@ -10,11 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc20bee74a4969841a9f04be3bab7987, type: 3}
-  m_Name: Wave2
+  m_Name: Wave 1
   m_EditorClassIdentifier: 
   enemisInWave:
-  - {fileID: 8096660424645948020, guid: 5e305b0c66816ec47b2f8a27df688b90, type: 3}
-  - {fileID: 1181123577385609252, guid: e88d7d6c6b399484cb1a303bc230eb8c, type: 3}
-  - {fileID: 1944785100389817405, guid: 99d6024a7e36c394f9eceecfb1849904, type: 3}
-  timeDelayAppearWave: 3
-  numberToSpawn: 10
+  - {fileID: 3110872852069505999, guid: 42bab2c83f3522c4c94ffc226ed5ab54, type: 3}
+  timeDelayAppearWave: 2
+  numberToSpawn: 3

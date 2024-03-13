@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Bee
   damage: 10
   moveSpeed: 4
-  rangeVision: 10
+  rangeVision: 20
   rangeAttack: 7
   health: 100
   wanderRadius: 10

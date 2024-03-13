@@ -13,6 +13,11 @@ public class HealthBar : GameUnit, IOnDeathObserver, IMenuObserver
 
     void Update()
     {
+        if(GameManager.Instance.IsState(GameState.Victory))
+        {
+            OnDespawn();
+        }
+        
         if(!GameManager.Instance.IsState(GameState.GamePlay)) return;
         
         imageFill.fillAmount = Mathf.Lerp(imageFill.fillAmount, hp / maxHP, Time.deltaTime*5f);

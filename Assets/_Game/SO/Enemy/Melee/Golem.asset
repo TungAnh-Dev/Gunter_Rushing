@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Golem
   damage: 10
   moveSpeed: 4
-  rangeVision: 10
+  rangeVision: 20
   rangeAttack: 3.5
   health: 200
   wanderRadius: 10

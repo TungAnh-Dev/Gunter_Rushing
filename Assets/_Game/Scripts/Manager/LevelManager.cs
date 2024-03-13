@@ -42,6 +42,7 @@ public class LevelManager : Singleton<LevelManager>
 
     private void OnLoadLevel(int levelIndex)
     {
+        this.levelIndex = levelIndex;
         DestroyCurrentLevel();
         currentLevel = Instantiate(levels[levelIndex]);
         currentLevel.OnInit();
@@ -79,6 +80,7 @@ public class LevelManager : Singleton<LevelManager>
 
     public void OnMenu()
     {
+        DestroyPlayer();
         NotifyMenuEvent();
         DestroyCurrentLevel();
         UIManager.Instance.CloseAll();
@@ -87,6 +89,7 @@ public class LevelManager : Singleton<LevelManager>
 
     public void OnVictory()
     {
+        PlayerPrefs.SetInt(Constants.LevelsUnlocked, levelIndex+1);
         Invoke(nameof(Victory), 3f);
     }
 

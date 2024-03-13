@@ -87,4 +87,5 @@ public class Player : Character
         return playerData.Hp;
     }
     #endregion
+
 }
