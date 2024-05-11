@@ -6,12 +6,12 @@ public class UI_Setting : UICanvas
     {
         base.Open();
         GameManager.Instance.ChangeState(GameState.Setting);
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
     }
 
     public override void Close(float delayTime)
     {
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
         base.Close(0f);
     }
 

@@ -57,6 +57,7 @@ public class UICanvas : MonoBehaviour
     //mo canvas
     public virtual void Open()
     {
+        Debug.Log("screen which is open: " + gameObject.name);
         gameObject.SetActive(true);
     }
 
@@ -64,6 +65,7 @@ public class UICanvas : MonoBehaviour
     //dong truc tiep, ngay lap tuc
     public virtual void CloseDirectly()
     {
+        Debug.Log("screen which is closing: " + gameObject.name);
         UIManager.Instance.RemoveBackUI(this);
         gameObject.SetActive(false);
         if (IsDestroyOnClose)
@@ -79,5 +81,6 @@ public class UICanvas : MonoBehaviour
     {
         Invoke(nameof(CloseDirectly), delayTime);
     }
+
 
 }

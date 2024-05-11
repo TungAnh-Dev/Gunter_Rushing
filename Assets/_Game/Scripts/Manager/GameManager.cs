@@ -1,4 +1,5 @@
 
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public enum GameState { MainMenu, GamePlay, Fail, Victory, Setting }
@@ -19,8 +20,20 @@ public class GameManager : Singleton<GameManager>
         
     }
 
-    private void Start()
+    private async void Start()
+    {
+        OnInit();
+
+    }
+
+    public async void OnInit()
     {
         UIManager.Instance.OpenUI<UI_MainMenu>();
+        await UIManager.Instance.OpenUI_Delay<UI_Setting>(3);
+        
+        await UIManager.Instance.WaitForScreenToClose<UI_Setting>();
+
+        // Các công việc tiếp theo sau khi CloseUI_Delay đã hoàn thành
+        Debug.Log("CloseUI_Delay đã hoàn thành!");
     }
 }
